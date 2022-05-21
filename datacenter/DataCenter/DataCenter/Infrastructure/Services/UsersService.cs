@@ -20,10 +20,6 @@ namespace DataCenter.Infrastructure.Services
 
         private readonly IDateTimeProvider dateTimeProvider;
 
-        private readonly IPhonesService phonesService;
-
-        private readonly IBankingService bankingService;
-
         private readonly IBanRecordsService banRecordsService;
 
         private readonly IExecutedCommandsAuditService executedCommandsAuditService;
@@ -37,8 +33,6 @@ namespace DataCenter.Infrastructure.Services
         public UsersService(
             DatabaseProvider databaseProvider,
             DateTimeProvider dateTimeProvider,
-            PhonesService phonesService,
-            BankingService bankingService,
             BanRecordsService banRecordsService,
             ExecutedCommandsAuditService executedCommandsAuditService,
             ChatMessagesAuditService chatMessagesAuditService,
@@ -48,8 +42,6 @@ namespace DataCenter.Infrastructure.Services
             this.databaseProvider = databaseProvider;
             this.dateTimeProvider = dateTimeProvider;
 
-            this.phonesService = phonesService;
-            this.bankingService = bankingService;
             this.banRecordsService = banRecordsService;
 
             this.executedCommandsAuditService = executedCommandsAuditService;
@@ -92,9 +84,7 @@ namespace DataCenter.Infrastructure.Services
         public async Task<UserDto> GetUserDto(string userName)
         {
             User user = await GetUser(userName);
-            UserDto userDto = mapper.Map<UserDto>(user);
-            userDto.PhoneNumber = (long)await phonesService.GetNumberForUser(userName);
-            return userDto;
+            return mapper.Map<UserDto>(user);
         }
 
         public async Task<UserSettingsDto> GetUserSettingsDto(string unitId, string userName)
@@ -139,14 +129,7 @@ namespace DataCenter.Infrastructure.Services
             await databaseProvider.CreateAsync(settings);
             await databaseProvider.CommitAsync();
 
-            await bankingService.CreateEmptyBankAccount(unitId, userName);
-
-            long phoneNumber = await phonesService.CreateNumberForUser(user.Name);
-
-            UserDto userDto = mapper.Map<UserDto>(user);
-            userDto.PhoneNumber = phoneNumber;
-
-            return userDto;
+            return mapper.Map<UserDto>(user);
         }
 
         public async Task Update(UserDto userDto)
@@ -194,8 +177,8 @@ namespace DataCenter.Infrastructure.Services
         {
             User user = await GetUser(userName);
 
-            // TODO: Fix in #512
-            if (user.JoinedDate.Year == 0001)
+            // TODO: Fix needed
+            if (user.JoinedDate.Year == 1)
             {
                 return;
             }
@@ -239,7 +222,6 @@ namespace DataCenter.Infrastructure.Services
                 Vip = false,
                 Administrator = false,
                 Builder = false,
-                Realtor = false
             };
         }
 
@@ -249,7 +231,6 @@ namespace DataCenter.Infrastructure.Services
             {
                 UnitId = unitId,
                 Name = userName,
-                Organisation = 0
             };
         }
 

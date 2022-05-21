@@ -4,11 +4,7 @@
     {
         public string Name { get; set; }
 
-        public string Licenses { get; set; }
-
         public string Attributes { get; set; }
-
-        public int Organisation { get; set; }
 
         public string World { get; set; }
 

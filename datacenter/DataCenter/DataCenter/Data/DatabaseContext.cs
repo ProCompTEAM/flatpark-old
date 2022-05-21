@@ -13,17 +13,9 @@ namespace DataCenter.Data
 
         public DbSet<UserSettings> UserSettings { get; set; }
 
-        public DbSet<BankAccount> BankAccounts { get; set; }
-
         public DbSet<MapPoint> MapPoints { get; set; }
 
-        public DbSet<Phone> Phones { get; set; }
-
-        public DbSet<UnitBalance> UnitBalances { get; set; }
-
         public DbSet<FloatingText> FloatingTexts { get; set; }
-
-        public DbSet<MoneyTransactionAuditRecord> MoneyTransactionAuditRecords { get; set; }
 
         public DbSet<ExecutedCommandAuditRecord> ExecutedCommandAuditRecords { get; set; }
 

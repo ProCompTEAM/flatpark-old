@@ -10,15 +10,9 @@ namespace DataCenter.Data.Dtos
 
         public string Group { get; set; }
 
-        public string People { get; set; }
-
-        public string Tag { get; set; }
-
         public int Bonus { get; set; }
 
         public int MinutesPlayed { get; set; }
-
-        public long PhoneNumber { get; set; }
 
         public bool Vip { get; set; }
 

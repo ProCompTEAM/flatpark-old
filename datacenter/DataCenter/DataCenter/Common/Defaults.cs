@@ -14,11 +14,5 @@
         public const int DefaultStringLength = 128;
 
         public const int DefaultLongStringLength = 4096;
-
-        public const int StartPhoneNumber = 10001;
-
-        public const int MoneyRoundDigitsAmount = 2;
-
-        public const double UnitStartBalance = 1000000000000;
     }
 }

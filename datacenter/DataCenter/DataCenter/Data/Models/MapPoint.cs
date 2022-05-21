@@ -1,5 +1,3 @@
-using DataCenter.Common;
-using DataCenter.Data.Attributes;
 using DataCenter.Data.Base;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -8,13 +6,13 @@ namespace DataCenter.Data.Models
 {
     public class MapPoint : BaseEntity, IUnited, ICreatedDate
     {
-        [Required, Unicode(Defaults.DefaultStringLength)]
+        [Required]
         public string Name { get; set; }
 
-        [Required, Unicode(Defaults.DefaultStringLength)]
+        [Required]
         public string UnitId { get; set; }
 
-        [Required, Unicode(Defaults.DefaultStringLength)]
+        [Required]
         public string World { get; set; }
 
         [Required]

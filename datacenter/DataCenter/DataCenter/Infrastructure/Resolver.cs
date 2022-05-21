@@ -25,12 +25,9 @@ namespace DataCenter.Infrastructure
         private static void ResolveControllers()
         {
             Resolve<SettingsController>();
-            Resolve<PhonesController>();
             Resolve<UsersController>();
             Resolve<MapController>();
-            Resolve<BankingController>();
             Resolve<FloatingTextsController>();
-            Resolve<WebController>();
             Resolve<BanRecordsController>();
         }
 
@@ -44,16 +41,11 @@ namespace DataCenter.Infrastructure
 
         private static void ResolveServices()
         {
-            Resolve<PhonesService>();
-            Resolve<BankingService>();
             Resolve<BanRecordsService>();
             Resolve<UsersService>();
             Resolve<MapService>();
             Resolve<FloatingTextsService>();
-            Resolve<TokenService>();
-            Resolve<WebService>();
 
-            Resolve<MoneyTransactionsAuditService>();
             Resolve<ExecutedCommandsAuditService>();
             Resolve<ChatMessagesAuditService>();
             Resolve<UserTrafficAuditService>();

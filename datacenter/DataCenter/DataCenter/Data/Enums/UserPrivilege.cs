@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataCenter.Data.Enums
+﻿namespace DataCenter.Data.Enums
 {
     public enum UserPrivilege : int
     {
@@ -15,7 +9,5 @@ namespace DataCenter.Data.Enums
         Administrator = 2,
 
         Builder = 3,
-
-        Realtor = 4
     }
 }
