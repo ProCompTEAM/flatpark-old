@@ -1,0 +1,37 @@
+Migrations documentation:
+- https://docs.microsoft.com/ru-ru/ef/core/managing-schemas/migrations/?tabs=vs
+- https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/projects?tabs=dotnet-core-cli
+- https://coding.abel.nu/2012/03/ef-migrations-command-reference/
+
+SETUP:
+Create source database;
+
+Init db history:
+CREATE TABLE `__EFMigrationsHistory` ( `MigrationId` nvarchar(150) NOT NULL, `ProductVersion` nvarchar(32) NOT NULL, PRIMARY KEY (`MigrationId`) );
+
+Execute on NUGET console:
+> Enable-Migrations -ContextAssemblyName DataCenter -MigrationsDirectory "DataCenter\Data\Migrations"
+Then
+> Update-Database -Project DataCenter
+
+Add default access token from \Data\Sql\AddDefaultToken.sql
+Execute this script for flatpark db
+
+
+MIGRATIONS:
+Create the first migration:
+> Enable-Migrations -ContextAssemblyName DataCenter -MigrationsDirectory "DataCenter\Data\Migrations"
+> Add-Migration InitializeAll -Project DataCenter
+> Update-Database -Project DataCenter
+
+And next migration:
+> Add-Migration <name> -Project DataCenter
+> Update-Database -Project DataCenter
+
+Also, when adding new migration you must open migration file and modify its Down function to: throw new NotImplementedException();
+
+
+PROTOCOL:
+DataCenter and the remote target must understand each other;
+To avoid situations where the DataCenter code is outdated, the Protocol is used.
+For each major update, please update the protocol version in the Common/Protocol.cs file;

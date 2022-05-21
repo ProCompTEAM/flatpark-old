@@ -1,0 +1,151 @@
+name: FlatParkCore
+main: flatpark\Core
+version: 1.0
+api: 4.0.0
+load: POSTWORLD
+
+commands:
+ service:
+  default: op
+  permission: flatpark.service
+ addpoint:
+  default: true
+  permission: flatpark.all
+ rempoint:
+  default: true
+  permission: flatpark.all
+ topoint:
+  default: true
+  permission: flatpark.all
+ tonearpoint:
+  default: true
+  permission: flatpark.all
+ a:
+  default: true
+  permission: flatpark.all
+ lvl:
+  default: true
+  permission: flatpark.all
+ report:
+  default: true
+  permission: flatpark.all
+ reply:
+  default: true
+  permission: flatpark.all
+ close:
+  default: true
+  permission: flatpark.all
+ gpsnear:
+  default: true
+  permission: flatpark.all
+ gps:
+  default: true
+  permission: flatpark.all
+ o:
+  default: true
+  permission: flatpark.all
+ p:
+  default: true
+  permission: flatpark.all
+ pay:
+  default: true
+  permission: flatpark.all
+ money:
+  default: true
+  permission: flatpark.all
+ doc:
+  default: true
+  permission: flatpark.all
+ pass:
+  default: true
+  permission: flatpark.all
+ showpass:
+  default: true
+  permission: flatpark.all
+ balance:
+  default: true
+  permission: flatpark.all
+ c:
+  default: true
+  permission: flatpark.all
+ sms:
+  default: true
+  permission: flatpark.all
+ anim:
+  default: true
+  permission: flatpark.all
+ jexit:
+  default: true
+  permission: flatpark.all
+ takebox:
+  default: true
+  permission: flatpark.all
+ putbox:
+  default: true
+  permission: flatpark.all
+ getseller:
+  default: true
+  permission: flatpark.all
+ getf:
+  default: true
+  permission: flatpark.all
+ putf:
+  default: true
+  permission: flatpark.all
+ casino:
+  default: true
+  permission: flatpark.all
+ donate:
+  default: true
+  permission: flatpark.all
+ getorg:
+  default: true
+  permission: flatpark.all
+ online:
+  default: true
+  permission: flatpark.all
+ do:
+  default: true
+  permission: flatpark.all
+ me:
+  default: true
+  permission: flatpark.all
+ try:
+  default: true
+  permission: flatpark.all
+ s:
+  default: true
+  permission: flatpark.all
+ resetpassword:
+  default: true
+  permission: flatpark.all
+ bank:
+  default: true
+  permission: flatpark.all
+ day:
+  default: op
+  permission: flatpark.all
+ night:
+  default: op
+  permission: flatpark.all
+ t:
+  default: op
+  permission: flatpark.all
+ q:
+  default: true
+  permission: flatpark.all
+ floatingtexts:
+  default: true
+  permission: flatpark.all
+ atm:
+  default: true
+  permission: flatpark.all
+ moneygift:
+  default: true
+  permission: flatpark.all
+
+permissions:
+  flatpark.service:
+   default: op
+  flatpark.all:
+   default: true

@@ -1,0 +1,101 @@
+using AutoMapper;
+
+using DataCenter.Data.Dtos;
+using DataCenter.Data.Models;
+using DataCenter.Infrastructure.Providers;
+using DataCenter.Infrastructure.Providers.Interfaces;
+using DataCenter.Infrastructure.Services.Interfaces;
+
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace DataCenter.Infrastructure.Services
+{
+    public class FloatingTextsService : IFloatingTextsService, IService
+    {
+        private readonly IDatabaseProvider databaseProvider;
+
+        private readonly IMapper mapper;
+
+        public FloatingTextsService(DatabaseProvider databaseProvider, Mapper mapper)
+        {
+            this.databaseProvider = databaseProvider;
+            this.mapper = mapper;
+        }
+
+        public List<FloatingTextDto> GetAll(string unitId)
+        {
+            List<FloatingText> floatingTexts = databaseProvider.GetAll<FloatingText>(text => text.UnitId == unitId);
+
+            return mapper.Map<List<FloatingTextDto>>(floatingTexts);
+        }
+
+        public async Task<FloatingTextDto> Save(string unitId, LocalFloatingTextDto dto)
+        {
+            FloatingText floatingText = await GetFloatingText(unitId, dto.World, dto.X, dto.Y, dto.Z);
+
+            if (floatingText == null)
+            {
+                floatingText = await Create(unitId, dto.Text, dto.World, dto.X, dto.Y, dto.Z);
+                return mapper.Map<FloatingTextDto>(floatingText);
+            }
+
+            floatingText.Text = dto.Text;
+
+            await Update(floatingText);
+
+            return mapper.Map<FloatingTextDto>(floatingText);
+        }
+
+        public async Task<bool> Remove(string unitId, string world, double x, double y, double z)
+        {
+            FloatingText floatingText = await GetFloatingText(unitId, world, x, y, z);
+
+            if (floatingText == null)
+            {
+                return false;
+            }
+
+            databaseProvider.Delete(floatingText);
+            await databaseProvider.CommitAsync();
+
+            return true;
+        }
+
+        private FloatingText GetFloatingTextTemplate(string unitId, string text, string world, double x, double y, double z)
+        {
+            return new FloatingText
+            {
+                UnitId = unitId,
+                Text = text,
+                World = world,
+                X = x,
+                Y = y,
+                Z = z
+            };
+        }
+
+        private async Task<FloatingText> GetFloatingText(string unitId, string world, double x, double y, double z)
+        {
+            return await databaseProvider.SingleOrDefaultAsync<FloatingText>(text =>
+                text.X == x &&  text.Y == y && text.Z == z && text.World == world
+                    && text.UnitId == unitId);
+        }
+
+        private async Task Update(FloatingText floatingText)
+        {
+            databaseProvider.Update(floatingText);
+            await databaseProvider.CommitAsync();
+        }
+
+        private async Task<FloatingText> Create(string unitId, string text, string world, double x, double y, double z)
+        {
+            FloatingText floatingText = GetFloatingTextTemplate(unitId, text, world, x, y, z);
+
+            await databaseProvider.CreateAsync(floatingText);
+            await databaseProvider.CommitAsync();
+
+            return floatingText;
+        }
+    }
+}
