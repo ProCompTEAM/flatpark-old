@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace DataCenter.Utilities
+namespace DataCenter.Common.Utilities
 {
     public static class ObjectComparer
     {

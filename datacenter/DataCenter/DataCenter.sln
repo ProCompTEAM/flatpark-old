@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30523.141
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataCenter", "DataCenter\DataCenter.csproj", "{50ABA1B3-BD65-4D7E-AFEF-3C6128889B83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataCenter.Common", "DataCenter\DataCenter.Common.csproj", "{50ABA1B3-BD65-4D7E-AFEF-3C6128889B83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataCenter.Loader", "DataCenter.Loader\DataCenter.Loader.csproj", "{491DEAD9-549F-4D84-8D44-25E32734E809}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataCenter.Application", "DataCenter.Loader\DataCenter.Application.csproj", "{491DEAD9-549F-4D84-8D44-25E32734E809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCenter.Data", "DataCenter.Data\DataCenter.Data.csproj", "{F3825E2C-73E2-448F-BDA1-FC53B74DE6AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCenter.Infrastructure", "DataCenter.Infrastructure\DataCenter.Infrastructure.csproj", "{99A26A3F-E912-4881-85C0-65BE6DA5DF52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCenter.Network", "DataCenter.Net\DataCenter.Network.csproj", "{3E830154-3ADF-4471-8DBC-F04D29A0AF12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{491DEAD9-549F-4D84-8D44-25E32734E809}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{491DEAD9-549F-4D84-8D44-25E32734E809}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{491DEAD9-549F-4D84-8D44-25E32734E809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3825E2C-73E2-448F-BDA1-FC53B74DE6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3825E2C-73E2-448F-BDA1-FC53B74DE6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3825E2C-73E2-448F-BDA1-FC53B74DE6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3825E2C-73E2-448F-BDA1-FC53B74DE6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A26A3F-E912-4881-85C0-65BE6DA5DF52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A26A3F-E912-4881-85C0-65BE6DA5DF52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A26A3F-E912-4881-85C0-65BE6DA5DF52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A26A3F-E912-4881-85C0-65BE6DA5DF52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E830154-3ADF-4471-8DBC-F04D29A0AF12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E830154-3ADF-4471-8DBC-F04D29A0AF12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E830154-3ADF-4471-8DBC-F04D29A0AF12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E830154-3ADF-4471-8DBC-F04D29A0AF12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

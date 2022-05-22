@@ -1,7 +1,10 @@
-﻿public static class StringUtility
+﻿namespace DataCenter.Common.Utilities
 {
-    public static string CutWithEnding(string source, int newLength, string ending = "...")
+    public static class StringUtility
     {
-        return source.Substring(0, newLength - ending.Length) + ending;
+        public static string CutWithEnding(string source, int newLength, string ending = "...")
+        {
+            return source.Substring(0, newLength - ending.Length) + ending;
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataCenter.Utilities
+namespace DataCenter.Common.Utilities
 {
     public static class MathAggregator
     {
